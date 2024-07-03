@@ -308,7 +308,7 @@ client.on('interactionCreate', async interaction => {
         const user = await client.users.fetch(userId);
         
         const durationString = interaction.options.getString('duration');
-        const durationChoice = interaction.options.getString('duration', true); // true für convertChoices, um den Wert der Auswahl abzurufen
+        const durationChoice = interaction.options.getString('duration', true);
         
         if (!['30m', '1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h', '12h', '24h', '48h', '72h', '96h', '120h', '144h', '168h'].includes(durationChoice)) {
             return interaction.reply('Ungültige Dauer. Verwende z.B. 1d für einen Tag, 2h für zwei Stunden usw.');
@@ -514,11 +514,11 @@ function parseDuration(durationString) {
 
   switch (unit) {
       case 'h':
-          return amountInt * 60 * 60 * 1000; // Stunden in Millisekunden umrechnen
+          return amountInt * 60 * 60 * 1000;
       case 'min':
-          return amountInt * 60 * 1000; // Minuten in Millisekunden umrechnen
+          return amountInt * 60 * 1000;
       case 's':
-          return amountInt * 1000; // Sekunden in Millisekunden umrechnen
+          return amountInt * 1000;
       default:
           return null;
   }
@@ -533,11 +533,11 @@ function parseVerlosungDuration(input) {
   const unit = match[2].toLowerCase();
   switch (unit) {
       case 'm':
-          return value * 60 * 1000; // Minuten in Millisekunden umrechnen
+          return value * 60 * 1000;
       case 'h':
-          return value * 60 * 60 * 1000; // Stunden in Millisekunden umrechnen
+          return value * 60 * 60 * 1000;
       case 'd':
-          return value * 24 * 60 * 60 * 1000; // Tage in Millisekunden umrechnen
+          return value * 24 * 60 * 60 * 1000;
       default:
           return null;
   }
